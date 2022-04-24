@@ -36,4 +36,8 @@ public class Cars {
         }
         return carList.get(index);
     }
+
+    public static void Test_init(){
+        carList = new ArrayList<>();
+    }
 }

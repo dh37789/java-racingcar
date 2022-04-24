@@ -27,7 +27,7 @@ public class CarTest {
 
         do {
             randomNumber = new RandomNumber();
-        } while(randomNumber.getNumber() > 4);
+        } while(randomNumber.getNumber() >= 4);
 
         car.addDriven(randomNumber);
 

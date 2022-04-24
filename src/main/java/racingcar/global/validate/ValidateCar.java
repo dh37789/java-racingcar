@@ -10,7 +10,16 @@ public class ValidateCar {
 
     private ValidateCar() {}
 
-    public static boolean isValidCarNameLength(InputData inputData) {
+    public static boolean isValidCarZeroNameLength(InputData inputData) {
+        String[] inputArr = inputData.getSplitInputData(",");
+        ValidateResult validateResult = new ValidateResult();
+        for (int i = 0; i < inputArr.length; i++){
+            validateResult = carZeroNameLengthCheck(validateResult, inputArr[i]);
+        }
+        return validateResult.getValidateResult();
+    }
+
+    public static boolean isInvalidCarNameLength(InputData inputData) {
         String[] inputArr = inputData.getSplitInputData(",");
         ValidateResult validateResult = new ValidateResult();
         for (int i = 0; i < inputArr.length; i++){
@@ -30,9 +39,17 @@ public class ValidateCar {
         return validateNameList.getValidateNameListSize() != validateNameSet.getValidateNameSetSize();
     }
 
-    private static ValidateResult carNameLengthCheck(ValidateResult validateResult, String inputSplitData) {
-        validateResult.setValidateResult(CarConfig.MIN_CAR_NAME_LENGTH < inputSplitData.length()&&inputSplitData.length() <= CarConfig.MAX_CAR_NAME_LENGTH);
+    private static ValidateResult carZeroNameLengthCheck(ValidateResult validateResult, String inputSplitData) {
+        if (!validateResult.getValidateResult())
+            validateResult.setValidateResult(CarConfig.MIN_CAR_NAME_LENGTH == inputSplitData.length());
         return validateResult;
     }
+
+    private static ValidateResult carNameLengthCheck(ValidateResult validateResult, String inputSplitData) {
+        if (!validateResult.getValidateResult())
+            validateResult.setValidateResult(inputSplitData.length() > CarConfig.MAX_CAR_NAME_LENGTH);
+        return validateResult;
+    }
+
 }
 

@@ -84,6 +84,7 @@ public class RacingGameService {
 
     private void validateInputData(InputData inputData) {
         validateIsEmpty(inputData);
+        validateCarZeroNameLength(inputData);
         validateCarNameLength(inputData);
         validateDuplicatedCarName(inputData);
     }
@@ -100,8 +101,15 @@ public class RacingGameService {
         }
     }
 
+
+    private void validateCarZeroNameLength(InputData inputData) {
+        if (ValidateCar.isValidCarZeroNameLength(inputData)){
+            throw new IllegalArgumentException(GameConfig.ERROR_PREFIX + ErrorCode.INVALID_CAR_LENGTH.getMessage());
+        }
+    }
+
     private void validateCarNameLength(InputData inputData) {
-        if (!ValidateCar.isValidCarNameLength(inputData)){
+        if (ValidateCar.isInvalidCarNameLength(inputData)){
             throw new IllegalArgumentException(GameConfig.ERROR_PREFIX + ErrorCode.INVALID_CAR_LENGTH.getMessage());
         }
     }
