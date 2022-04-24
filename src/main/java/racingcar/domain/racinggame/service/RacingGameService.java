@@ -1,11 +1,8 @@
 package racingcar.domain.racinggame.service;
 
-import org.junit.platform.commons.util.StringUtils;
-import org.mockito.internal.util.StringUtil;
 import racingcar.domain.InputData;
 import racingcar.domain.Lap.Lap;
 import racingcar.domain.car.*;
-import racingcar.domain.racinggame.RacingGame;
 import racingcar.global.config.GameConfig;
 import racingcar.global.constant.ErrorCode;
 import racingcar.global.utils.ConsoleUtils;
@@ -14,15 +11,11 @@ import racingcar.global.validate.ValidateCommon;
 import racingcar.global.validate.ValidateLap;
 import racingcar.view.RacingGameView;
 
-import java.util.function.Consumer;
-
 public class RacingGameService {
-    private RacingGame racingGame;
     private final Cars cars;
     private Lap lap;
 
     public RacingGameService() {
-        this.racingGame = RacingGame.getInstance();
         this.cars = Cars.getInstance();
     }
 

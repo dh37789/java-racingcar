@@ -31,7 +31,7 @@ public class ValidateCar {
     }
 
     private static ValidateResult carNameLengthCheck(ValidateResult validateResult, String inputSplitData) {
-        validateResult.setValidateResult(inputSplitData.length() <= CarConfig.MAX_CAR_NAME_LENGTH);
+        validateResult.setValidateResult(CarConfig.MIN_CAR_NAME_LENGTH < inputSplitData.length()&&inputSplitData.length() <= CarConfig.MAX_CAR_NAME_LENGTH);
         return validateResult;
     }
 }

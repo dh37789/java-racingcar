@@ -13,7 +13,6 @@ public class RacingGameController {
         racingGame = RacingGame.getInstance();
         racingGameService = new RacingGameService();
         racingGameView = new RacingGameView();
-        RacingGame.init();
         return new RacingGameController();
     }
 
