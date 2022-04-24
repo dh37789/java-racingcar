@@ -9,12 +9,6 @@ public class ConsoleUtils {
     private ConsoleUtils() {}
 
     public static String inputData() {
-        String inputData;
-        try {
-            inputData = Console.readLine();
-        } catch (NoSuchElementException e){
-            inputData = "";
-        }
-        return inputData;
+        return Console.readLine();
     }
 }
