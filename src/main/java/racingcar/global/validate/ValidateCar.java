@@ -12,9 +12,12 @@ public class ValidateCar {
 
     public static boolean isValidCarZeroNameLength(InputData inputData) {
         String[] inputArr = inputData.getSplitInputData(",");
+        if (inputArr.length == 0){
+            return true;
+        }
         ValidateResult validateResult = new ValidateResult();
         for (int i = 0; i < inputArr.length; i++){
-            validateResult = carZeroNameLengthCheck(validateResult, inputArr[i]);
+            carZeroNameLengthCheck(validateResult, inputArr[i]);
         }
         return validateResult.getValidateResult();
     }
@@ -23,7 +26,7 @@ public class ValidateCar {
         String[] inputArr = inputData.getSplitInputData(",");
         ValidateResult validateResult = new ValidateResult();
         for (int i = 0; i < inputArr.length; i++){
-            validateResult = carNameLengthCheck(validateResult, inputArr[i]);
+            carNameLengthCheck(validateResult, inputArr[i]);
         }
         return validateResult.getValidateResult();
     }

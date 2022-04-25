@@ -1,4 +1,4 @@
-package racingcar.domain.Lap;
+package racingcar.domain.lap;
 
 import racingcar.domain.InputData;
 

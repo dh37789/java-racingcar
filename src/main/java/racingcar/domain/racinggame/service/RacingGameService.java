@@ -1,7 +1,7 @@
 package racingcar.domain.racinggame.service;
 
 import racingcar.domain.InputData;
-import racingcar.domain.Lap.Lap;
+import racingcar.domain.lap.Lap;
 import racingcar.domain.car.*;
 import racingcar.global.config.GameConfig;
 import racingcar.global.constant.ErrorCode;
@@ -22,7 +22,7 @@ public class RacingGameService {
     public void createCar() {
         InputData inputData = new InputData(ConsoleUtils.inputData());
         validateInputData(inputData);
-        cars.createCar(inputData);
+        Cars.createCar(inputData);
     }
 
     public void inputLap() {
@@ -53,7 +53,7 @@ public class RacingGameService {
     public void racingResult() {
         Driven maxDriven = new Driven();
         for (Car car : cars.getCars()) {
-            maxDriven = getMaxDriven(car, maxDriven);
+            getMaxDriven(car, maxDriven);
         }
         getWinList(maxDriven);
     }
@@ -69,7 +69,7 @@ public class RacingGameService {
     private void getWinList(Driven maxDriven) {
         WinCars winCars = new WinCars();
         for (Car car : cars.getCars()){
-            winCars = addCar(car, maxDriven, winCars);
+            addCar(car, maxDriven, winCars);
         }
         RacingGameView racingGameView = new RacingGameView();
         racingGameView.outputWinCars(winCars);
@@ -104,7 +104,7 @@ public class RacingGameService {
 
     private void validateCarZeroNameLength(InputData inputData) {
         if (ValidateCar.isValidCarZeroNameLength(inputData)){
-            throw new IllegalArgumentException(GameConfig.ERROR_PREFIX + ErrorCode.INVALID_CAR_LENGTH.getMessage());
+            throw new IllegalArgumentException(GameConfig.ERROR_PREFIX + ErrorCode.INVALID_CAR_ZERO_NAME_LENGTH.getMessage());
         }
     }
 

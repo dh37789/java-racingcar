@@ -1,16 +1,13 @@
 package racingcar.controller;
 
-import racingcar.domain.racinggame.RacingGame;
 import racingcar.domain.racinggame.service.RacingGameService;
 import racingcar.view.RacingGameView;
 
 public class RacingGameController {
-    private static RacingGame racingGame;
     private static RacingGameService racingGameService;
     private static RacingGameView racingGameView;
 
     public static RacingGameController init() {
-        racingGame = RacingGame.getInstance();
         racingGameService = new RacingGameService();
         racingGameView = new RacingGameView();
         return new RacingGameController();
